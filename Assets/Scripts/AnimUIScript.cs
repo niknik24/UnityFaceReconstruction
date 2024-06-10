@@ -30,8 +30,7 @@ public class AnimUIScript : MonoBehaviour
         {
             animArray[i] = 1;
         }
-        ip = "http://127.0.0.1:8080/";
-        //ip = "http://51.250.96.220:8080";
+        ip = "http://51.250.96.220:8080";
         Download.GetComponent<Button>().onClick.AddListener(DownloadExp);
         getData();
     }
