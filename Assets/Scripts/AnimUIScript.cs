@@ -26,12 +26,12 @@ public class AnimUIScript : MonoBehaviour
     {
         text = GameObject.Find("CheckText");
         text.SetActive(false);
-        for (int i = 0; i < animArray.Length; i++)
+        for (int i = 0; i < animArray.Length - 1; i++)
         {
-            animArray[i] = 1;
+            animArray[i] = 0;
         }
-        ip = "http://127.0.0.1:8080/";
-        //ip = "http://51.250.96.220:8080";
+        animArray[3] = 1;
+        ip = "http://51.250.96.220:8080";
         Download.GetComponent<Button>().onClick.AddListener(DownloadExp);
         getData();
     }
@@ -115,7 +115,7 @@ public class AnimUIScript : MonoBehaviour
         {
             StopAllCoroutines();
             Debug.Log(www.error);
-            text.GetComponent<TextMeshProUGUI>().text = "Server is reloading. Please wait";
+            text.GetComponent<TextMeshProUGUI>().text = "Server is reloading.";
         }
         else
         {
@@ -179,8 +179,11 @@ public class AnimUIScript : MonoBehaviour
                 if (numbers[1] == "0")
                     text.GetComponent<TextMeshProUGUI>().text = "Preparing Data and Decoder";
                 else
-                    if (numbers[0] == numbers[1])
+                     if (numbers[0] == numbers[1])
+                {
                     text.GetComponent<TextMeshProUGUI>().text = "Getting ready for download";
+                    break;
+                }
                 else
                     if (numbers[1] != "0")
                         text.GetComponent<TextMeshProUGUI>().text = numbers[0] + " out of " + numbers[1];

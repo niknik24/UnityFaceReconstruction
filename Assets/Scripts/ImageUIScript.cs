@@ -69,6 +69,12 @@ public class ImageUIScript : MonoBehaviour
         GameObject scroll = this.transform.Find("Scroll/Scrollbar").gameObject;
         scroll.SetActive(false);
 
+        if (len == 14)
+        {
+            GameObject list = this.transform.Find("Scroll/List").gameObject;
+            list.transform.localPosition = new Vector3(-521, 17, 0);
+        }
+
         if (len > 14)
         {
             GameObject newRow2 = (GameObject)GameObject.Instantiate(rowObject, Vector3.zero, Quaternion.identity, this.transform.Find("Scroll/List").gameObject.transform);
